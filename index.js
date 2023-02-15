@@ -7,8 +7,12 @@
  * nesneyiTrimle({ isim: '  jane  ' }) // yeni bir nesne döndürür { name: 'jane' }
  */
 function nesneyiTrimle(obj) {
-  // ✨ kodlar buraya
+  for(var key in obj){
+    obj[key] = obj[key].trim()
+  }
+  return obj;
 }
+
 
 /**
  * [Görev 2] verileniTrimle propları string olan bir nesne alır ve gönderilen propu trimler.
@@ -20,8 +24,15 @@ function nesneyiTrimle(obj) {
  */
 function verileniTrimle(obj, prop) {
   // ✨ kodlar buraya
+  for(var key in obj){
+    if(key === prop){
+      obj[key] = obj[key].trim()
+    }
+  }
+  return obj
 }
 
+console.log(verileniTrimle({ isim: '  jane  ' , yas: ' 34 '}, 'isim'));
 /**
  * [Görev 3] enBuyukTamsayiyiBul bir dizi nesne içinde bulunan tamsayılardan en büyük olanı bulur { tamsayi: 1 }
  * @param {object[]} tamsayilar - bir dizi nesne
